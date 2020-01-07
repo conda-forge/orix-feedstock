@@ -10,7 +10,7 @@ source:
   sha256: a7420194cc2ff0f0ddc0691de97aa44a8254cba94c5b92d05b5b9e3a92afb636
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv "
 
@@ -31,7 +31,6 @@ test:
   imports:
     - orix
     - orix.base
-    - orix.grid
     - orix.io
     - orix.plot
     - orix.quaternion
