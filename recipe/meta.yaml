@@ -1,18 +1,18 @@
 {% set name = "orix" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a7420194cc2ff0f0ddc0691de97aa44a8254cba94c5b92d05b5b9e3a92afb636
+  sha256: 8d365e9c37c35582c9f513dc559ee58b81cc70f7ffd3eedb991eca93cd9ad11a
 
 build:
-  number: 1
+  number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv "
+  script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
@@ -20,12 +20,11 @@ requirements:
     - python >=3
   run:
     - python >=3
-    - ipython
-    - scipy >=0.15
     - numpy >=1.10
-    - tqdm
+    - scipy >=0.15
     - matplotlib >=3.1.1
-
+    - tqdm
+  
 test:
   requires:
     - pytest
