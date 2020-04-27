@@ -1,5 +1,5 @@
 {% set name = "orix" %}
-{% set version = "0.2.1" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8d365e9c37c35582c9f513dc559ee58b81cc70f7ffd3eedb991eca93cd9ad11a
+  sha256: 5571b25cf29d4b35dfb9153a72c9055fa2acfaa892d9c4bca13d32b117a88e83
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - scipy >=0.15
     - matplotlib >=3.1.1
     - tqdm
-  
+
 test:
   requires:
     - pytest
