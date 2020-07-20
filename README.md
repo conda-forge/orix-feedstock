@@ -3,9 +3,9 @@ About orix
 
 Home: https://github.com/pyxem/orix
 
-Package license: GPL-3.0
+Package license: GPL-3.0-only
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: An open-source Python library for diffraction simulations
 
