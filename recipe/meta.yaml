@@ -24,6 +24,8 @@ requirements:
     - scipy >=0.15
     - matplotlib ==3.2
     - tqdm
+    - diffpy.structure >=3.0.0
+    - h5py
 
 test:
   requires:
