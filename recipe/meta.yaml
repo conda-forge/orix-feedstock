@@ -10,7 +10,7 @@ source:
   sha256: 14851aec4b48a1bc416501c181f84d26ff206fc02c271b7d7881d5b97101d195
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: '{{ PYTHON }} -m pip install . -vv '
 
@@ -22,7 +22,7 @@ requirements:
     - python >=3
     - numpy >=1.10
     - scipy >=0.15
-    - matplotlib ==3.2
+    - matplotlib-base >=3.3.0
     - tqdm
     - diffpy.structure >=3.0.0
     - h5py
