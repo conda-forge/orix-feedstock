@@ -38,6 +38,8 @@ test:
     - orix.quaternion
     - orix.scalar
     - orix.vector
+    - orix.crystal_map
+    - orix.sampling
   commands:
     - pytest --pyargs orix
 
@@ -47,9 +49,10 @@ about:
   license_family: GPL
   license_file: LICENSE
   summary: An open-source Python library for diffraction simulations
-  doc_url: https://pyxem.github.io/orix
+  doc_url: https://orix.readthedocs.io/en/stable/
 
 extra:
   recipe-maintainers:
     - dnjohnstone
     - pc494
+    - hakonanes
