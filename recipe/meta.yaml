@@ -1,5 +1,5 @@
 {% set name = "orix" %}
-{% set version = "0.5.0" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4dd854c414d7639bbcc7b3d3dec17472d1cafd6f5bfa8cad32bdfd7de762b316
+  sha256: 45453372bc20d7b3067af07889f51ccbb149c16d40bc9a01e49904fb9c69cbde
 
 build:
   number: 1
@@ -38,6 +38,8 @@ test:
     - orix.quaternion
     - orix.scalar
     - orix.vector
+    - orix.crystal_map
+    - orix.sampling
   commands:
     - pytest --pyargs orix
 
@@ -47,7 +49,7 @@ about:
   license_family: GPL
   license_file: LICENSE
   summary: An open-source Python library for diffraction simulations
-  doc_url: https://pyxem.github.io/orix
+  doc_url: https://orix.readthedocs.io/en/stable/
 
 extra:
   recipe-maintainers:
