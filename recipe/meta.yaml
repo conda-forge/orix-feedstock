@@ -1,5 +1,5 @@
 {% set name = "orix" %}
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bc61cd1491da1c2930c58567a5045284f0d5162e7958e687c41adeb29d58b1fb
+  sha256: 1066ef568301d4f3a3861b66deb0d934ea04a1d1b6e3f437087e16d0ae15c938
 
 build:
   number: 0
@@ -20,26 +20,29 @@ requirements:
     - python >=3
   run:
     - python >=3
-    - numpy >=1.10
-    - scipy >=0.15
-    - matplotlib-base >=3.3.0
-    - tqdm
-    - diffpy.structure >=3.0.0
+    - dask
+    - diffpy.structure >=3
     - h5py
+    - matplotlib-base >=3.3
     - matplotlib-scalebar
+    - numba
+    - numpy
+    - scipy
+    - tqdm
 test:
   requires:
     - pytest
   imports:
     - orix
     - orix.base
+    - orix.crystal_map
     - orix.io
     - orix.plot
+    - orix.projections
     - orix.quaternion
+    - orix.sampling
     - orix.scalar
     - orix.vector
-    - orix.crystal_map
-    - orix.sampling
   commands:
     - pytest --pyargs orix
 
