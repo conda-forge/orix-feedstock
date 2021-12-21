@@ -1,5 +1,5 @@
 {% set name = "orix" %}
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1066ef568301d4f3a3861b66deb0d934ea04a1d1b6e3f437087e16d0ae15c938
+  sha256: 5f89f1155b6271a193064a2da0af64ba1031d13ab96d69dddf117c6eea4d79b5
 
 build:
   number: 0
@@ -51,7 +51,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE
-  summary: An open-source Python library for diffraction simulations
+  summary: An open-source Python library for handling of crystal orientation mapping data
   doc_url: https://orix.readthedocs.io/en/stable/
 
 extra:
@@ -59,3 +59,4 @@ extra:
     - dnjohnstone
     - pc494
     - hakonanes
+    - harripj
