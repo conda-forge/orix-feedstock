@@ -51,7 +51,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE
-  summary: An open-source Python library for diffraction simulations
+  summary: An open-source Python library for handling of crystal orientation mapping data
   doc_url: https://orix.readthedocs.io/en/stable/
 
 extra:
