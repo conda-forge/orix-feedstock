@@ -1,5 +1,5 @@
 {% set name = "orix" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5f89f1155b6271a193064a2da0af64ba1031d13ab96d69dddf117c6eea4d79b5
+  sha256: 141881767bf5a601b1d058a52d40370b33cfd22a40df103289590c6448c38726
 
 build:
   number: 0
