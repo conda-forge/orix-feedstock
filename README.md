@@ -7,7 +7,7 @@ Package license: GPL-3.0-only
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/orix-feedstock/blob/master/LICENSE.txt)
 
-Summary: An open-source Python library for diffraction simulations
+Summary: An open-source Python library for handling of crystal orientation mapping data
 
 Documentation: https://orix.readthedocs.io/en/stable/
 
@@ -120,5 +120,6 @@ Feedstock Maintainers
 
 * [@dnjohnstone](https://github.com/dnjohnstone/)
 * [@hakonanes](https://github.com/hakonanes/)
+* [@harripj](https://github.com/harripj/)
 * [@pc494](https://github.com/pc494/)
 
