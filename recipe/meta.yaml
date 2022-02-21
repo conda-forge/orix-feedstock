@@ -27,6 +27,7 @@ requirements:
     - matplotlib-scalebar
     - numba
     - numpy
+    - quaternion
     - scipy
     - tqdm
 test:
