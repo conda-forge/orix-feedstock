@@ -1,5 +1,5 @@
 {% set name = "orix" %}
-{% set version = "0.8.1" %}
+{% set version = "0.8.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 141881767bf5a601b1d058a52d40370b33cfd22a40df103289590c6448c38726
+  sha256: a576847b6ab091ca15eb39af7c12b2a5457101f2399c111f9ad65e1df09f39fc
 
 build:
   number: 0
@@ -27,6 +27,7 @@ requirements:
     - matplotlib-scalebar
     - numba
     - numpy
+    - quaternion
     - scipy
     - tqdm
 test:
