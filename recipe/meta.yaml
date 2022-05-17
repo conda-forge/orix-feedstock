@@ -27,6 +27,7 @@ requirements:
     - matplotlib-scalebar
     - numba
     - numpy
+    - pooch
     - quaternion
     - scipy
     - tqdm
@@ -37,12 +38,12 @@ test:
     - orix
     - orix.base
     - orix.crystal_map
+    - orix.data
     - orix.io
     - orix.plot
     - orix.projections
     - orix.quaternion
     - orix.sampling
-    - orix.scalar
     - orix.vector
   commands:
     - pytest --pyargs orix
