@@ -1,5 +1,5 @@
 {% set name = "orix" %}
-{% set version = "0.9.0.post0" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 30e2a7a9d316a495cfe55d965d5bd03f206dbb60294aad5de1c7cbcb02b57b7d
+  sha256: b1ed6f740a94ed5bca3cf7661eeedfc4c5f12007477cf61558b7fba1c39a5907
 
 build:
   number: 0
@@ -31,6 +31,7 @@ requirements:
     - quaternion
     - scipy
     - tqdm
+
 test:
   requires:
     - pytest
@@ -40,6 +41,7 @@ test:
     - orix.crystal_map
     - orix.data
     - orix.io
+    - orix.measure
     - orix.plot
     - orix.projections
     - orix.quaternion
@@ -49,12 +51,19 @@ test:
     - pytest --pyargs orix
 
 about:
-  home: https://github.com/pyxem/orix
-  license: GPL-3.0-only
+  home: https://orix.readthedocs.io
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
-  summary: An open-source Python library for handling of crystal orientation mapping data
-  doc_url: https://orix.readthedocs.io/en/stable/
+  summary: |
+    Python library for handling of crystal orientation mapping data
+  description: |
+    orix defines objects and functions for the analysis of orientations
+    represented as quaternions or 3D rotation vectors accounting for crystal
+    symmetry. Functionality builds primarily on NumPy and Matplotlib and is
+    heavily inspired by the MATLAB package MTEX.
+  dev_url: https://github.com/pyxem/orix
+  doc_url: https://orix.readthedocs.io/en/stable
 
 extra:
   recipe-maintainers:
