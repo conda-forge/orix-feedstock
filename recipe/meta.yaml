@@ -10,16 +10,16 @@ source:
   sha256: b1ed6f740a94ed5bca3cf7661eeedfc4c5f12007477cf61558b7fba1c39a5907
 
 build:
-  number: 0
-  noarch: python
+  number: 1
+  skip: true  # [py<37]
   script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
     - pip
-    - python >=3
+    - python
   run:
-    - python >=3
+    - python
     - dask
     - diffpy.structure >=3
     - h5py
