@@ -10,16 +10,16 @@ source:
   sha256: c1ebf19a78cdc791db95925f95102b4a86ef6e14a7e9b26b9d3bcca26a4df167
 
 build:
+  noarch: python
   number: 0
-  skip: true  # [py<37]
   script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.7
   run:
-    - python
+    - python >=3.7
     - dask
     - diffpy.structure >=3
     - h5py
@@ -27,7 +27,7 @@ requirements:
     - matplotlib-scalebar
     - numba
     - numpy
-    - pooch
+    - pooch >= 0.13
     - quaternion
     - scipy
     - tqdm
