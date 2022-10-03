@@ -10,7 +10,7 @@ source:
   sha256: b1ed6f740a94ed5bca3cf7661eeedfc4c5f12007477cf61558b7fba1c39a5907
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py<37]
   script: '{{ PYTHON }} -m pip install . -vv '
 
@@ -34,6 +34,7 @@ requirements:
 
 test:
   requires:
+    - pip
     - pytest
   imports:
     - orix
@@ -48,6 +49,9 @@ test:
     - orix.sampling
     - orix.vector
   commands:
+    - pip check
+    - export MPLBACKEND=agg  # [unix]
+    - set MPLBACKEND=agg  # [win]
     - pytest --pyargs orix
 
 about:
