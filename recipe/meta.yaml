@@ -48,7 +48,10 @@ test:
     - orix.sampling
     - orix.vector
   commands:
-    - pytest --pyargs orix -k "not test_plot_masked_phase and not test_plot_ipf_color_key"
+    - pip check
+    - export MPLBACKEND=agg  # [unix]
+    - set MPLBACKEND=agg  # [win]
+    - pytest --pyargs orix
 
 about:
   home: https://orix.readthedocs.io
