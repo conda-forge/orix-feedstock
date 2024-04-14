@@ -1,29 +1,31 @@
 {% set name = "orix" %}
-{% set version = "0.11.1" %}
+{% set version = "0.12.0" %}
+{% set temporary_version = "0.12" %} # NB!!! Remove this on next release after 0.12.0!!!
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ab4c52d06cdc015347bc2025b67f7a3c0b9c419ec1b74e25a579fad8f13546a0
+#  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ temporary_version }}.tar.gz
+  sha256: 1196d9923d77f6d878fd9142d05514e135844ea6ee4b4dc426e28f97dabd7d26
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.8
   run:
-    - python >=3.7
+    - python >=3.8
     - dask-core
-    - diffpy.structure >=3
+    - diffpy.structure >=3.0.2
     - h5py
-    - matplotlib-base >=3.3
+    - matplotlib-base >=3.5
     - matplotlib-scalebar
     - numba
     - numpy
@@ -38,7 +40,6 @@ test:
     - pytest
   imports:
     - orix
-    - orix.base
     - orix.crystal_map
     - orix.data
     - orix.io
@@ -64,8 +65,7 @@ about:
   description: |
     orix defines objects and functions for the analysis of orientations
     represented as quaternions or 3D rotation vectors accounting for crystal
-    symmetry. Functionality builds primarily on NumPy and Matplotlib and is
-    heavily inspired by the MATLAB package MTEX.
+    symmetry. Functionality builds primarily on NumPy and Matplotlib.
   dev_url: https://github.com/pyxem/orix
   doc_url: https://orix.readthedocs.io/en/stable
 
