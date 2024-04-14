@@ -40,7 +40,6 @@ test:
     - pytest
   imports:
     - orix
-    - orix.base
     - orix.crystal_map
     - orix.data
     - orix.io
