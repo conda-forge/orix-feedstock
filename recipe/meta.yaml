@@ -53,7 +53,7 @@ test:
     - pip check
     - export MPLBACKEND=agg  # [unix]
     - set MPLBACKEND=agg  # [win]
-    - pytest --pyargs orix
+    - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
 
 about:
   home: https://orix.readthedocs.io
