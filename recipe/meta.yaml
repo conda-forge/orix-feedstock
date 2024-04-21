@@ -1,15 +1,13 @@
 {% set name = "orix" %}
-{% set version = "0.12.0" %}
-{% set temporary_version = "0.12" %} # NB!!! Remove this on next release after 0.12.0!!!
+{% set version = "0.12.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-#  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ temporary_version }}.tar.gz
-  sha256: 1196d9923d77f6d878fd9142d05514e135844ea6ee4b4dc426e28f97dabd7d26
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 190fa23a1663e84e143ea1505c911f79dec0bddc44e696da9cd4de5469e04dd7
 
 build:
   noarch: python
