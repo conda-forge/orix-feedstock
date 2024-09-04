@@ -28,6 +28,7 @@ requirements:
     - numba
     - numpy
     - pooch >=0.13
+    - pycifrw  # TODO: Remove when https://github.com/pyxem/orix/issues/510 is fixed
     - quaternion
     - scipy
     - tqdm
@@ -51,7 +52,7 @@ test:
     - pip check
     - export MPLBACKEND=agg  # [unix]
     - set MPLBACKEND=agg  # [win]
-    - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
+    - python -m pytest --pyargs orix
 
 about:
   home: https://orix.readthedocs.io
