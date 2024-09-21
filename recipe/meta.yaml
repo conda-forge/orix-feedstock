@@ -2,7 +2,7 @@
 {% set version = "0.13.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}-meta
   version: {{ version }}
 
 source:
@@ -14,26 +14,36 @@ build:
   number: 0
   script: '{{ PYTHON }} -m pip install . -vv '
 
-requirements:
-  host:
-    - hatch
-    - pip
-    - python >=3.10
-  run:
-    - python >=3.10
-    - dask-core
-    - diffpy.structure >=3.0.2
-    - h5py
-    - matplotlib-base >=3.6.1
-    - matplotlib-scalebar
-    - numba
-    - numpy
-    - pooch >=0.13
-    - pycifrw  # TODO: Remove when https://github.com/pyxem/orix/issues/510 is fixed
-    - quaternion
-    - scipy
-    - tqdm
-    - typing-extensions
+outputs:
+  - name: {{ name }}-base
+    requirements:
+      host:
+        - hatch
+        - pip
+        - python >=3.10
+      run:
+        - python >=3.10
+        - dask-core
+        - diffpy.structure >=3.0.2
+        - h5py
+        - matplotlib-base >=3.6.1
+        - matplotlib-scalebar
+        - numba
+        - numpy
+        - pooch >=0.13
+        - pycifrw  # TODO: Remove when https://github.com/pyxem/orix/issues/510 is fixed
+        - scipy
+        - tqdm
+        - typing-extensions
+  - name: {{ name }}
+    requirements:
+      host:
+        - hatch
+        - pip
+        - python >=3.10
+      run:
+        - {{ pin_subpackage('orix-base', exact=True) }}
+        - quaternion
 
 test:
   requires:
@@ -51,10 +61,11 @@ test:
     - orix.sampling
     - orix.vector
   commands:
-    - pip check
     - export MPLBACKEND=agg  # [unix]
     - set MPLBACKEND=agg  # [win]
     - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
+    # https://github.com/diffpy/diffpy.structure/issues/101
+    # - pip check
 
 about:
   home: https://orix.readthedocs.io
