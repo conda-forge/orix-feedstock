@@ -10,15 +10,16 @@ source:
   sha256: c9abb87746987cfafbc0fc6d7e79932ea5a1039f31be876f258f536c3cc18f09
 
 build:
-  noarch: python
   number: 0
-  script: '{{ PYTHON }} -m pip install . -vv '
 
 outputs:
   - name: {{ name }}-base
+    build:
+      script: '{{ PYTHON }} -m pip install . -vv '
+      noarch: python
     requirements:
       host:
-        - hatch
+        - hatcling
         - pip
         - python >=3.10
       run:
@@ -31,41 +32,43 @@ outputs:
         - numba
         - numpy
         - pooch >=0.13
-        - pycifrw  # TODO: Remove when https://github.com/pyxem/orix/issues/510 is fixed
+        # TODO: Remove when https://github.com/pyxem/orix/issues/510 is fixed
+        - pycifrw
         - scipy
         - tqdm
         - typing-extensions
+      test:
+        requires:
+          - pip
+          - pytest
+        imports:
+          - orix
+          - orix.crystal_map
+          - orix.data
+          - orix.io
+          - orix.measure
+          - orix.plot
+          - orix.projections
+          - orix.quaternion
+          - orix.sampling
+          - orix.vector
+        commands:
+          - export MPLBACKEND=agg  # [unix]
+          - set MPLBACKEND=agg  # [win]
+          - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
+          # https://github.com/diffpy/diffpy.structure/issues/101
+          # - pip check
   - name: {{ name }}
+    build:
+      noarch: python
     requirements:
       host:
-        - hatch
+        - hatcling
         - pip
         - python >=3.10
       run:
         - {{ pin_subpackage('orix-base', exact=True) }}
         - quaternion
-
-test:
-  requires:
-    - pip
-    - pytest
-  imports:
-    - orix
-    - orix.crystal_map
-    - orix.data
-    - orix.io
-    - orix.measure
-    - orix.plot
-    - orix.projections
-    - orix.quaternion
-    - orix.sampling
-    - orix.vector
-  commands:
-    - export MPLBACKEND=agg  # [unix]
-    - set MPLBACKEND=agg  # [win]
-    - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
-    # https://github.com/diffpy/diffpy.structure/issues/101
-    # - pip check
 
 about:
   home: https://orix.readthedocs.io
