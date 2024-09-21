@@ -16,14 +16,15 @@ build:
 
 requirements:
   host:
+    - hatch
     - pip
-    - python >=3.8
+    - python >=3.10
   run:
-    - python >=3.8
+    - python >=3.10
     - dask-core
     - diffpy.structure >=3.0.2
     - h5py
-    - matplotlib-base >=3.5
+    - matplotlib-base >=3.6.1
     - matplotlib-scalebar
     - numba
     - numpy
@@ -32,6 +33,7 @@ requirements:
     - quaternion
     - scipy
     - tqdm
+    - typing-extensions
 
 test:
   requires:
