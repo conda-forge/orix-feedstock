@@ -11,6 +11,12 @@ source:
 
 build:
   number: 0
+  noarch: python
+
+requirements:
+  host:
+    - hatcling
+    - python
 
 outputs:
   - name: {{ name }}-base
@@ -59,8 +65,6 @@ outputs:
           # https://github.com/diffpy/diffpy.structure/issues/101
           # - pip check
   - name: {{ name }}
-    build:
-      noarch: python
     requirements:
       host:
         - hatcling
@@ -69,6 +73,25 @@ outputs:
       run:
         - {{ pin_subpackage('orix-base', exact=True) }}
         - quaternion
+      test:
+        requires:
+          - pip
+          - pytest
+        imports:
+          - orix
+          - orix.crystal_map
+          - orix.data
+          - orix.io
+          - orix.measure
+          - orix.plot
+          - orix.projections
+          - orix.quaternion
+          - orix.sampling
+          - orix.vector
+        commands:
+          - export MPLBACKEND=agg  # [unix]
+          - set MPLBACKEND=agg  # [win]
+          - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
 
 about:
   home: https://orix.readthedocs.io
