@@ -15,7 +15,7 @@ build:
 
 requirements:
   host:
-    - hatcling
+    - hatchling
     - python
 
 outputs:
@@ -25,7 +25,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - hatcling
+        - hatchling
         - pip
         - python >=3.10
       run:
@@ -67,7 +67,7 @@ outputs:
   - name: {{ name }}
     requirements:
       host:
-        - hatcling
+        - hatchling
         - pip
         - python >=3.10
       run:
