@@ -1,6 +1,6 @@
 {% set python_min = '3.10' %}
 {% set name = "orix" %}
-{% set version = "0.13.2" %}
+{% set version = "0.13.3" %}
 
 package:
   name: {{ name }}-meta
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5e3f057ce94e1856f0a2c55d05700ee7bb3847a81d4a2e5a6176192c547d4cf5
+  sha256: d62f40d8139169440f4ec9666c17b5d69b4f59c0f8ce81e2fe137e2b84927807
 
 build:
-  number: 1
+  number: 0
   noarch: python
 
 requirements:
@@ -64,8 +64,7 @@ outputs:
           - export MPLBACKEND=agg  # [unix]
           - set MPLBACKEND=agg  # [win]
           - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
-          # https://github.com/diffpy/diffpy.structure/issues/101
-          # - pip check
+          - python -m pip check
   - name: {{ name }}
     requirements:
       host:
