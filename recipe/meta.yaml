@@ -34,8 +34,8 @@ outputs:
         - dask-core
         - diffpy.structure >=3.0.2
         - h5py
+        - lazy-loader
         - matplotlib-base >=3.6.1
-        - matplotlib-scalebar
         - numba
         - numpy
         - pooch >=0.13
@@ -73,6 +73,7 @@ outputs:
         - python {{ python_min }}
       run:
         - {{ pin_subpackage('orix-base', exact=True) }}
+        - matplotlib-scalebar
         - quaternion
       test:
         requires:
