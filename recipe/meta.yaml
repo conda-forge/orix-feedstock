@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "orix" %}
-{% set version = "0.13.3" %}
+{% set version = "0.14.0" %}
 
 package:
   name: {{ name }}-meta
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d62f40d8139169440f4ec9666c17b5d69b4f59c0f8ce81e2fe137e2b84927807
+  sha256: 4c164ff1a737b5b2ba0aae8e6b94d511200dfa2bd24de136bec176d22678ef41
 
 build:
   number: 0
@@ -34,8 +34,8 @@ outputs:
         - dask-core
         - diffpy.structure >=3.0.2
         - h5py
+        - lazy-loader
         - matplotlib-base >=3.6.1
-        - matplotlib-scalebar
         - numba
         - numpy
         - pooch >=0.13
@@ -73,6 +73,7 @@ outputs:
         - python {{ python_min }}
       run:
         - {{ pin_subpackage('orix-base', exact=True) }}
+        - matplotlib-scalebar
         - quaternion
       test:
         requires:
