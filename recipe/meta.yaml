@@ -12,11 +12,9 @@ source:
 
 build:
   number: 0
-  noarch: python
 
 requirements:
   host:
-    - hatchling
     - python {{ python_min }}
 
 outputs:
@@ -65,10 +63,10 @@ outputs:
           - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
           - python -m pip check
   - name: {{ name }}
+    build:
+      noarch: python
     requirements:
       host:
-        - hatchling
-        - pip
         - python {{ python_min }}
       run:
         - {{ pin_subpackage('orix-base', exact=True) }}
