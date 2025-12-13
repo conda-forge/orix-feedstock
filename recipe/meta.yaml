@@ -61,8 +61,7 @@ outputs:
           - orix.sampling
           - orix.vector
         commands:
-          - export MPLBACKEND=agg  # [unix]
-          - set MPLBACKEND=agg  # [win]
+          - export MPLBACKEND=agg
           - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
           - python -m pip check
   - name: {{ name }}
@@ -92,8 +91,7 @@ outputs:
           - orix.sampling
           - orix.vector
         commands:
-          - export MPLBACKEND=agg  # [unix]
-          - set MPLBACKEND=agg  # [win]
+          - export MPLBACKEND=agg
           - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
 
 about:
