@@ -11,12 +11,10 @@ source:
   sha256: 369e080fae75090dceed9d87b674dd27b1f20ca3c4630edf4286d580c65986c7
 
 build:
-  number: 0
-  noarch: python
+  number: 1
 
 requirements:
   host:
-    - hatchling
     - python {{ python_min }}
 
 outputs:
@@ -61,15 +59,14 @@ outputs:
           - orix.sampling
           - orix.vector
         commands:
-          - export MPLBACKEND=agg  # [unix]
-          - set MPLBACKEND=agg  # [win]
+          - export MPLBACKEND=agg
           - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
           - python -m pip check
   - name: {{ name }}
+    build:
+      noarch: python
     requirements:
       host:
-        - hatchling
-        - pip
         - python {{ python_min }}
       run:
         - {{ pin_subpackage('orix-base', exact=True) }}
@@ -92,8 +89,7 @@ outputs:
           - orix.sampling
           - orix.vector
         commands:
-          - export MPLBACKEND=agg  # [unix]
-          - set MPLBACKEND=agg  # [win]
+          - export MPLBACKEND=agg
           - python -m pytest --pyargs orix -k "not test_get_sample_reduced_fundamental"
 
 about:
