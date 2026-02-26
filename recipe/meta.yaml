@@ -1,6 +1,6 @@
 {% set python_min = "3.10" %}
 {% set name = "orix" %}
-{% set version = "0.14.1" %}
+{% set version = "0.14.2" %}
 
 package:
   name: {{ name }}-meta
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 369e080fae75090dceed9d87b674dd27b1f20ca3c4630edf4286d580c65986c7
+  sha256: 352d8af9257d35f8c7a599f558d8752e56baf42f3f17a92f0f49431de98252c8
 
 build:
   number: 0
